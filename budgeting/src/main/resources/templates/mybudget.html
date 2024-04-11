@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Budgets</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="mybudget.css" th:href="@{mybudget.css}" />
+</head>
+
+<body>
+    <h1>Welcome!</h1>
+    <table class="mybudget">
+
+        <tbody>
+            <tr>
+            <th>Your Budget</th>
+            </tr>
+            <tr th:each="budget : ${budget}">
+                <td th:text="${budget.name}">
+                    <td th:text="${budget.category.item}" >
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

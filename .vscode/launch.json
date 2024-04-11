@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BudgetingApplication<budgeting>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "fi.haagahelia.budgeting.BudgetingApplication",
+            "projectName": "budgeting",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
