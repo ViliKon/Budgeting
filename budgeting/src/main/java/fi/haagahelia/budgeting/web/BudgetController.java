@@ -70,8 +70,18 @@ public class BudgetController {
         return "editbudget";
 
     }
-    
 
+    @RequestMapping(value = "/review/{id}")
+    public String review(@PathVariable Long id, Model model) {
+        model.addAttribute("budget", repository.findAll());
+        model.addAttribute("id", id);
+        return "reviewbudget";
+    }
+
+    @RequestMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
 
     
 }

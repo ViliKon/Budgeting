@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Budgets</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="mybudget.css" th:href="@{mybudget.css}" />
+</head>
+
+<body>
+
+    <!--<div th:if="${budget.id == 1}">-->
+        <div th:if="${budget.id == id}" th:each="budget : ${budget}">
+        <h1 th:text="${budget.name}"></h1>
+        <h1 th:text="${budget.amount}"></h1>
+        
+        <!-- Display other details of the budget -->
+    </div>
+          
+
+                    <!-- <td><a th:href="@{/edit/{id}(id=${budget.id})}"> Edit</a></td>-->
+        
+</body>
+
+</html>

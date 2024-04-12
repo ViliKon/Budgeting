@@ -22,12 +22,17 @@ public class BudgetingApplication {
 		return (args) -> {
 
 			catRepository.save(new Category("Housing", "Rent"));
+			catRepository.save(new Category("Savings", "Car"));
 
 			Budget myBudget = new Budget("Monthly Budget", 2000.0, 
 			catRepository.findByType("Housing").get(0));
 
+			Budget myBudget2 = new Budget("Monthly Savings", 500.0, 
+			catRepository.findByType("Savings").get(0));
+
 			repository.save(myBudget);
-			
+			repository.save(myBudget2);
+
 		};
 	}
 

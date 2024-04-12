@@ -8,16 +8,14 @@
 </head>
 
 <body>
-    <h1>Welcome!</h1>
+    <h1>Edit budget</h1>
     <table class="mybudget">
 
         <tbody>
             <tr>
-            <th>Your Budgets</th>
+            <th>Edit</th>
             </tr>
-            <tr th:each="budget : ${budget}">
-                <td> <a th:href="@{/review/{id}(id=${budget.id})}" th:text="${budget.name}"></td>
-                       <!-- <td><a th:href="@{/edit/{id}(id=${budget.id})}"> Edit</a></td>-->
+           
         </tbody>
     </table>
 </body>
