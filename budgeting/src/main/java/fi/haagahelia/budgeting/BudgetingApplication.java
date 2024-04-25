@@ -10,6 +10,7 @@ import fi.haagahelia.budgeting.domain.BudgetRepository;
 import fi.haagahelia.budgeting.domain.Category;
 import fi.haagahelia.budgeting.domain.CategoryRepository;
 
+
 @SpringBootApplication
 public class BudgetingApplication {
 
@@ -17,21 +18,31 @@ public class BudgetingApplication {
 		SpringApplication.run(BudgetingApplication.class, args);
 	}
 
+
 	@Bean
-	public CommandLineRunner demo(BudgetRepository repository, CategoryRepository catRepository) {
+	public CommandLineRunner demo(BudgetRepository repository, CategoryRepository crepository) {
 		return (args) -> {
 
-			catRepository.save(new Category("Housing", "Rent"));
-			catRepository.save(new Category("Savings", "Car"));
 
-			Budget myBudget = new Budget("Monthly Budget", 2000.0, 
-			catRepository.findByType("Housing").get(0));
+			crepository.save(new Category("Housing"));
+			crepository.save(new Category("Bills"));
+			crepository.save(new Category("Entertainment"));
+			crepository.save(new Category("Savings"));
 
-			Budget myBudget2 = new Budget("Monthly Savings", 500.0, 
-			catRepository.findByType("Savings").get(0));
+
+
+			Budget myBudget = new Budget("Rent",800.0, 
+			crepository.findByName("Housing").get(0));
+
+			Budget myBudget2 = new Budget("Car",50.0, 
+			crepository.findByName("Savings").get(0));
+
+			Budget myBudget3 = new Budget("Phone bill", 25.0, 
+			crepository.findByName("Bills").get(0));
 
 			repository.save(myBudget);
 			repository.save(myBudget2);
+			repository.save(myBudget3);
 
 		};
 	}

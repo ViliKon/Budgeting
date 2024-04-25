@@ -1,5 +1,6 @@
 package fi.haagahelia.budgeting.domain;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,13 +15,15 @@ public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id; 
-    private String name; 
+    private String name;
     private double amount;
     
 
     @ManyToOne
-    @JoinColumn(name = "categoryId")
-    private Category category;
+	@JoinColumn(name = "categoryid")
+	private Category category;
+
+
 
     public Budget() {
         
@@ -63,6 +66,14 @@ public class Budget {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public static double getTotal(Iterable<Budget> budgets) {
+        double total = 0.0;
+        for (Budget budget : budgets) {
+            total += budget.getAmount();
+        }
+        return total;
     }
 
     @Override

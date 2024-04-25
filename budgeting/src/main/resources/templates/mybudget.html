@@ -13,13 +13,25 @@
 
         <tbody>
             <tr>
-            <th>Your Budgets</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Options</th>
             </tr>
             <tr th:each="budget : ${budget}">
-                <td> <a th:href="@{/review/{id}(id=${budget.id})}" th:text="${budget.name}"></td>
-                       <!-- <td><a th:href="@{/edit/{id}(id=${budget.id})}"> Edit</a></td>-->
+            
+                <td th:text="${budget.name}"> </td>
+                <td th:text="${budget.category.name}"></td>
+                <td th:text="${budget.amount}"></td>
+                 <td sec:authorize="hasRole('ADMIN')"><td><a th:href="@{/edit/{id}(id=${budget.id})}">Edit</a>
+                    <a th:href="@{/delete/{id}(id=${budget.id})}">Delete</a></td>
+                
+
         </tbody>
     </table>
+
+    <h4>Total Budget: <span th:text="${totalBudget}"></span></h4>
+    <a class="btn btn-success" href="/add">Add</a>
 </body>
 
 </html>
